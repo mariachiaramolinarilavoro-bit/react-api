@@ -1,17 +1,15 @@
+import ActorCard from './ActorCard';
 export default function AppMain({ actors }) {
 
     return (
-        <main>
-            {actors.map(actor => (
-                <div key={actor.id}>
-                    <img src={actor.image} alt={actor.name} />
-                    <h2>{actor.name}</h2>
-                    <p>{actor.birth_year}</p>
-                    <p>{actor.nationality}</p>
-                    <p>{actor.biography}</p>
-                    <p>{actor.awards}</p>
-                </div>
-            ))}
+        <main className="container my-4">
+            <div className="row row-cols-1 row-cols-md-3 g-4">
+                {actors.map(actor => (
+                    <div className="col" key={actor.id}>
+                        <ActorCard actor={actor} />
+                    </div>
+                ))}
+            </div>
         </main>
     )
 }
